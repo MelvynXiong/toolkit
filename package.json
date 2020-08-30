@@ -1,0 +1,10 @@
+{
+  "name": "@xmh/comp",
+  "version": "1.0.0",
+  "description": "UI组件",
+  "main": "index.js",
+  "repository": "git@github.com:xiongmeihui/xcomp.git",
+  "author": "xiongmeihui",
+  "license": "MIT",
+  "private": false
+}
