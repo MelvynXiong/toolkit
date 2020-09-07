@@ -6,5 +6,19 @@
   "repository": "git@github.com:xiongmeihui/xcomp.git",
   "author": "xiongmeihui",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
+  },
+  "devDependencies": {
+    "docz": "^2.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "gatsby-plugin-sass": "^2.3.12",
+    "node-sass": "^4.14.1"
+  }
 }
