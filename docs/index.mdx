@@ -10,9 +10,9 @@ route: /
 ## 安装
 
 ```bash
-yarn add @xmh/comp
+yarn add @ioe/toolkit
 #or
-npm install @xmh/comp --save
+npm install @ioe/toolkit --save
 ```
 
 ## 使用
@@ -20,34 +20,11 @@ npm install @xmh/comp --save
 ### 示例
 
 ```jsx
-import { TestComponent } from "@youzan/ecloud-components";
+import { TestComponent } from "@ioe/toolkit";
 
 ReactDOM.render(<TestComponent />, mountNode);
 ```
 
-### 使用 `babel-plugin-import`
-
-将如下部分增加到 `.babelrc` 的 `plugins` 中，可以让打包的时候按需加载组件代码，节省打包体积。
-
-```js
-[
-  "import",
-  [
-    {
-      libraryName: "@youzan/ecloud-components",
-      libraryDirectory: "lib/components",
-      style: (name) => {
-        return `${name}/style/index.css`;
-      },
-    },
-  ],
-];
-```
-
 ## 开发
 
-- 开发模式 `yarn dev`，然后打开 [localhost:3001](//localhost:3001)
-
-## 问题
-
- 有任何组件使用上的问题，可以找 @male，或者直接在 [Gitlab](http://gitlab.qima-inc.com/fe-ecloud/ecloud-components) 上提 MR 或 Issue。
+- 开发模式 `yarn dev`，然后打开 [localhost:3000](//localhost:3000)
