@@ -1,0 +1,11 @@
+.vertical-swiper-view-port {
+  overflow: hidden;
+
+  .vertical-swiper-content-container {
+    display: flex;
+    flex-direction: column;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+  }
+}
