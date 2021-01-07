@@ -1,0 +1,27 @@
+@import '@youzan/yun-style/src/color';
+
+.quick-nav-bar {
+  width: 88px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $whiteColor;
+
+  .quick-nav-item {
+    font-size: 14px;
+    color: $grayColor;
+    cursor: pointer;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $blueColor;
+    }
+  }
+}
