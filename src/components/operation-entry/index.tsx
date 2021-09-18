@@ -1,13 +1,15 @@
 import React, { ReactNode } from 'react';
-import { Button, Dialog } from '@ali/xconsole/ui';
+import { Button, Dialog } from '@ali/wind';
 
 interface Props {
   actionName: string;
   className?: string;
   text?: boolean;
   dialogTitle: ReactNode;
-  dialogContent: ReactNode;
+  dialogContent?: ReactNode;
   operation?: () => void;
+  footer?: ReactNode;
+  renderDialogContent?: (props: any) => ReactNode;
 }
 
 export default function OperationEntry({
@@ -17,15 +19,22 @@ export default function OperationEntry({
   dialogContent,
   operation,
   text,
+  footer,
+  renderDialogContent,
 }: Props) {
   function openDialog() {
-    Dialog.show({
+    const dialog = Dialog.show({
       title: dialogTitle,
-      content: dialogContent,
+      content: renderDialogContent ? renderDialogContent({ onCancel }) : dialogContent,
       onOk: async () => {
         await operation();
       },
+      footer,
     });
+
+    function onCancel() {
+      dialog.hide();
+    }
   }
   return (
     <Button onClick={openDialog} className={className} type="primary" text={text}>
