@@ -10,6 +10,7 @@ interface Props {
   operation?: () => void;
   footer?: ReactNode;
   renderDialogContent?: (props: any) => ReactNode;
+  disabled?: boolean;
 }
 
 export default function OperationEntry({
@@ -21,6 +22,7 @@ export default function OperationEntry({
   text,
   footer,
   renderDialogContent,
+  disabled,
 }: Props) {
   function openDialog() {
     const dialog = Dialog.show({
@@ -37,7 +39,13 @@ export default function OperationEntry({
     }
   }
   return (
-    <Button onClick={openDialog} className={className} type="primary" text={text}>
+    <Button
+      onClick={openDialog}
+      disabled={disabled}
+      className={className}
+      type="primary"
+      text={text}
+    >
       {actionName}
     </Button>
   );
