@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Button, Dialog } from '@ali/wind';
+import { Button, Dialog } from '@ali/xconsole/ui';
 
 interface Props {
   actionName: string;
@@ -29,7 +29,10 @@ export default function OperationEntry({
       title: dialogTitle,
       content: renderDialogContent ? renderDialogContent({ onCancel }) : dialogContent,
       onOk: async () => {
-        await operation();
+        if (operation) {
+          await operation();
+        }
+        onCancel();
       },
       footer,
     });
