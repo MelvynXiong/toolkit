@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Button, Dialog } from '@ali/xconsole/ui';
+import { Button, Dialog } from '@ali/wind';
 
 interface Props {
   actionName: string;
@@ -7,10 +7,12 @@ interface Props {
   text?: boolean;
   dialogTitle: ReactNode;
   dialogContent?: ReactNode;
+  dialogClassName?: string;
   operation?: () => void;
   footer?: ReactNode;
   renderDialogContent?: (props: any) => ReactNode;
-  disabled?: boolean;
+  style?: any;
+  type?: 'primary' | 'secondary' | 'normal';
 }
 
 export default function OperationEntry({
@@ -18,23 +20,23 @@ export default function OperationEntry({
   className,
   dialogTitle,
   dialogContent,
+  dialogClassName,
   operation,
   text,
   footer,
   renderDialogContent,
-  disabled,
+  style,
+  type,
 }: Props) {
   function openDialog() {
     const dialog = Dialog.show({
       title: dialogTitle,
       content: renderDialogContent ? renderDialogContent({ onCancel }) : dialogContent,
       onOk: async () => {
-        if (operation) {
-          await operation();
-        }
-        onCancel();
+        await operation();
       },
       footer,
+      className: dialogClassName,
     });
 
     function onCancel() {
@@ -44,9 +46,9 @@ export default function OperationEntry({
   return (
     <Button
       onClick={openDialog}
-      disabled={disabled}
+      style={style}
       className={className}
-      type="primary"
+      type={type || 'primary'}
       text={text}
     >
       {actionName}
