@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Button, Dialog } from '@ali/wind';
 
 interface Props {
-  actionName: string;
+  actionName: ReactNode;
   className?: string;
   text?: boolean;
   dialogTitle: ReactNode;
