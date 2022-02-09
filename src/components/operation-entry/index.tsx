@@ -13,6 +13,7 @@ interface Props {
   renderDialogContent?: (props: any) => ReactNode;
   style?: any;
   type?: 'primary' | 'secondary' | 'normal';
+  isCustomized?: boolean;
 }
 
 export default function OperationEntry({
@@ -27,6 +28,7 @@ export default function OperationEntry({
   renderDialogContent,
   style,
   type,
+  isCustomized,
 }: Props) {
   function openDialog() {
     const dialog = Dialog.show({
@@ -43,7 +45,11 @@ export default function OperationEntry({
       dialog.hide();
     }
   }
-  return (
+  return isCustomized ? (
+    <div onClick={openDialog} className={className} style={style}>
+      {actionName}
+    </div>
+  ) : (
     <Button
       onClick={openDialog}
       style={style}
