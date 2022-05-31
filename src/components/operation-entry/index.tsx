@@ -14,6 +14,7 @@ interface Props {
   style?: any;
   type?: 'primary' | 'secondary' | 'normal';
   isCustomized?: boolean;
+  disabled?: boolean;
 }
 
 export default function OperationEntry({
@@ -29,8 +30,12 @@ export default function OperationEntry({
   style,
   type,
   isCustomized,
+  disabled,
 }: Props) {
   function openDialog() {
+    if (disabled) {
+      return;
+    }
     const dialog = Dialog.show({
       title: dialogTitle,
       content: renderDialogContent ? renderDialogContent({ onCancel }) : dialogContent,
@@ -51,6 +56,7 @@ export default function OperationEntry({
     </div>
   ) : (
     <Button
+      disabled={disabled}
       onClick={openDialog}
       style={style}
       className={className}
